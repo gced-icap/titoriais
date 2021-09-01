@@ -2,14 +2,21 @@
 <html>
  <head>
   <meta charset= "utf-8">
-  <title> Instalación de Ubuntu 18.04 mini</title>
+  <title> Instalación de Ubuntu 18.04 Server minimal</title>
  </head>
  <body>
 
-  <h1>Instalación de Ubuntu 18.04 mini nunha VM de VirtualBox</h1>
-  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Ubuntu 18.04 mini coas opcións que hai que seleccionar en cada paso. </p>
+  <h1>Instalación de Ubuntu 18.04 Server minimal nunha VM de VirtualBox</h1>
+  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Ubuntu 18.04 Server minimal coas opcións que hai que seleccionar en cada paso. </p>
   <ol>
-  <li>Escolle a opción <b>Install</b>.</li>
+  <li><a href="http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-amd64/current/images/netboot/mini.iso">Descarga desde aquí</a> a imaxe ISO da versión <i>MinimalCD</i> do Ubuntu Server 18.04.<p/></li>
+
+  <li>Renomea a imaxe ISO descargada como <b>ubuntu-18_04-mini.iso</b><p/></li>
+
+  <li>Inicia a VM que creaches no VirtualBox e selecciona a imaxe ISO descargada como disco de arranque. Se che dera problemas accedendo á imaxe ISO, podes probar a apagar a VM, montar a imaxe ISO "manualmente" nas opcións de almacenamento da VM, como se indica na captura, e iniciar de novo a VM.</li>
+  <p><img src="Captura000.png" alt="Montaxe manual da ISO" style="width:650px;height:500px;"></p>
+
+  <li>Se a VM se iniciou correctamente aparecerá o menú inicial do instalador de Ubuntu. Escolle a opción <b>Install</b>.</li>
   <p><img src="Captura001.png" alt="Menu de instalación" style="width:700px;height:600px;"></p>
 
   <li>Escolle o idioma.</li>  <p><img src="Captura002.png" alt="Escolla do idioma" style="width:700px;height:600px;"></p>  <p><img src="Captura003.png" alt="Escolla do idioma" style="width:700px;height:600px;"></p>
@@ -32,7 +39,8 @@
 
   <li>A instalación continúa. Paciencia.</li>  <p><img src="Captura028.png" alt="Instalación de software" style="width:700px;height:600px;"></p>  <li>Escolle instalar as coleccións de software indicadas na captura: Ubuntu desktop, OpenSSH Server e Basic Ubuntu server.</li>  <p><img src="Captura029.png" alt="Escolla de software" style="width:700px;height:600px;"></p>  <li>Realízase a instalación do software escollido. Paciencia. Isto tamén vai levar un cacho.</li>  <p><img src="Captura030.png" alt="Instalación de software" style="width:700px;height:600px;"></p> 
   <li>Acepta instalar GRUB, o cargador que xestiona o arranque do SO desde o disco ríxido.</li>  <p><img src="Captura031.png" alt="Configuración de GRUB" style="width:700px;height:600px;"></p>  <p><img src="Captura032.png" alt="Configuración de GRUB" style="width:700px;height:600px;"></p>  <li>Escolle SI para indicar que o reloxo do sistema utiliza a hora UTC.</li>  <p><img src="Captura033.png" alt="Reloxo en hora UTC" style="width:700px;height:600px;"></p>  <li>Instálase o que falta. Xa estamos rematando.</li>  <p><img src="Captura034.png" alt="Instalación de software" style="width:700px;height:600px;"></p> 
-  <li>Rematou a instalación. Antes de aceptar para continuar, podes extraer o CD de instalación (a imaxe ISO de Ubuntu) desde VirtualBox, na configuración do almacenamento da VM. </li>
+  <li>Rematou a instalación. Antes de aceptar para continuar, extrae o CD de instalación (a imaxe ISO de Ubuntu) desde VirtualBox, na configuración do almacenamento da VM. </li>
+  <p><img src="Captura036.png" alt="Desmontaxe da ISO" style="width:650px;height:500px;"></p>
   <p><img src="Captura035.png" alt="Rematou a instalación" style="width:700px;height:600px;"></p>
   </ol>
  </body>
