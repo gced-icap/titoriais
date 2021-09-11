@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset= "utf-8">
+  <title> Instalación de Ubuntu 18.04 Server minimal</title>
+ </head>
+ <body>
+
+  <h1>Instalación de Ubuntu 18.04 Server minimal nunha VM de Proxmox</h1>
+  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Ubuntu 18.04 Server minimal coas opcións que hai que seleccionar en cada paso.</p>
+<p style="font-size:125%;"><b>A maioría dos pasos son semellantes ao que xa se fixo na práctica 0, pero OLLO que hai algunha pequena diferenza.</b></p>
+  <ol>
+
+  <li>Inicia a VM que creaches no Proxmox e que ten montada no CD virtual a imaxe ISO da versión <i>MinimalCD</i> do Ubuntu Server 18.04.<p/></li>
+
+  <li>Se a VM se iniciou correctamente, accedendo á súa consola poderás ver o menú inicial do instalador de Ubuntu. Escolle a opción <b>Install</b>.</li>
+  <p><img src="Captura001.png" alt="Menu de instalación" style="width:700px;height:500px;"></p>
+
+  <li>Escolle o idioma.</li>  <p><img src="Captura002.png" alt="Escolla do idioma" style="width:700px;height:500px;"></p>  <p><img src="Captura003.png" alt="Escolla do idioma" style="width:700px;height:500px;"></p>
+
+  <li>Escolle a localización.</li>  <p><img src="Captura004.png" alt="Escolla da localización" style="width:700px;height:500px;"></p>  <li>Configura o teclado. Podes aceptar que se detecte automaticamente ou non aceptar e configuralo manualmente. Se o configuras manualmente, podes deixar a disposición por defecto ou escoller a que máis se asemelle ao teclado que teñas.</li>  <p><img src="Captura005.png" alt="Configuración do teclado" style="width:700px;height:500px;"></p>  <p><img src="Captura006.png" alt="Configuración do teclado" style="width:700px;height:500px;"></p>  <p><img src="Captura007.png" alt=""Configuración do teclado style="width:700px;height:500px;"></p>
+
+  <li>A configuración automática da rede faia na VM Proxmox xa que non temos configurado o protocolo necesario para que funcione. Acepta e escolle a opción de configuración manual da rede.</li>  <p><img src="Captura008.png" alt="Fallo na configuración automática da rede" style="width:700px;height:500px;"></p>
+  <p><img src="Captura009.png" alt="Escolla da opción de configuración manual da rede" style="width:700px;height:500px;"></p>
+
+  <li>Cubre os seguintes datos de configuración da rede a medida que se che vaian pedindo:<p/></li>
+
+  <ul>
+  <li>Enderezo IP: <b>10.10.10.100/24</b></li>
+  <li>Enderezo da pasarela: <b>10.10.10.2</b></li>
+  <li>Enderezo do servidor de nomes: <b>10.0.2.3</b></li>
+  <li>Nome da máquina: <b>vm100</b></li>
+  <li>Nome do dominio: <b>icap</b></li>
+  </ul>
+
+  <p><img src="Captura010.png" alt="Enderezo IP" style="width:700px;height:500px;"></p>
+  <p><img src="Captura016.png" alt="Configuración da pasarela" style="width:700px;height:500px;"></p>
+  <p><img src="Captura017.png" alt="Configuración do servidor DNS" style="width:700px;height:500px;"></p>
+  <p><img src="Captura011.png" alt="Nome da máquina" style="width:700px;height:500px;"></p>
+  <p><img src="Captura012.png" alt="Nome de dominio" style="width:700px;height:500px;"></p>
+
+  <li>Escolle a réplica que se usará para descargar Ubuntu.</li>
+
+  <p><img src="Captura013.png" alt="Escolla da réplica de Ubuntu" style="width:700px;height:500px;"></p>  <p><img src="Captura014.png" alt="Escolla da réplica de Ubuntu" style="width:700px;height:500px;"></p>
+  <li>Continua deixando a información do proxy en branco.</li>
+
+  <p><img src="Captura015.png" alt="Configuración do proxy" style="width:700px;height:500px;"></p>  <li>Realízase a carga das compoñentes adicionais. Paciencia. Isto pode levar un rato.<p/></li>
+  <li>Configura a conta de usuario que usarás para iniciar sesión na VM. Podes por os datos que queiras pero lémbrate deles porque vamos necesitalos despois.</li>
+
+  <p><img src="Captura018.png" alt="Configuración de usuarios: nome completo" style="width:700px;height:500px;"></p>  <p><img src="Captura019.png" alt="Configuración de usuarios: login" style="width:700px;height:500px;"></p>  <p><img src="Captura020.png" alt="Configuración de usuarios: contrasinal 1" style="width:700px;height:500px;"></p>
+  <p><img src="Captura021.png" alt="Configuración de usuarios: contrasinal 2" style="width:700px;height:500px;"></p>
+  <li>Se é doado adiviñar o contrasinal, o instalador faracho saber. Como é unha conta que usaremos só para probas podes deixalo así.</li>
+
+  <p><img src="Captura022.png" alt="Configuración de usuarios: contrasinal feble" style="width:700px;height:500px;"></p>
+  <li>Realízase a configuración do reloxo.<p/></li>  <li>Escolle o fuso horario de Madrid.</li>  <p><img src="Captura023.png" alt="Configuración do fuso horario" style="width:700px;height:500px;"></p>  <li>Seguen a cargarse máis compoñentes adicionais. Paciencia.<p/></li>
+
+  <li>Configuración do disco. Vamos escoller a opción máis simple que consiste nun modo guiado que usa o disco completo. O instalador encargarase de todo automaticamente.</li>  <p><img src="Captura024.png" alt="Configuración do disco" style="width:700px;height:500px;"></p>  <li>Acepta particionar o disco e formatar a partición. Unha vez remate escolle <b>Si</b> para aceptar gravar as modificacións no disco.</li>  <p><img src="Captura025.png" alt="Configuración do disco" style="width:700px;height:500px;"></p>  <p><img src="Captura026.png" alt="Configuración do disco" style="width:700px;height:500px;"></p>
+  <li>Comeza a instalación do sistema. Paciencia. Este é o paso da instalación que require de máis tempo.<p/></li>  <li>Escolle a opción sen actualizacións automáticas. Como a VM vamos usala só para probas, así evitamos que as actualizacións interfiran e consuman recursos que poden facer que a VM vaia moi lenta.</li>  <p><img src="Captura027.png" alt="Configuración de actualizacións" style="width:700px;height:500px;"></p>
+
+  <li>A instalación continúa. Paciencia.<p/></li>  <li>Escolle instalar só a colección de software <b>Basic Ubuntu server</b> que se indica na captura.</li>
+  <p><img src="Captura028.png" alt="Escolla de software" style="width:700px;height:500px;"></p>  <li>Realízase a instalación do software escollido. Paciencia. Isto tamén vai levar un cacho.<p/></li> 
+  <li>Acepta instalar GRUB, o cargador que xestiona o arranque do SO desde o disco ríxido.</li>  <p><img src="Captura029.png" alt="Configuración de GRUB" style="width:700px;height:500px;"></p>  <li>Escolle <b>Si</b> para indicar que o reloxo do sistema utiliza a hora UTC.</li>  <p><img src="Captura030.png" alt="Reloxo en hora UTC" style="width:700px;height:500px;"></p>  <li>Instálase o que falta. Xa estamos rematando.<p/></li> 
+  <li>Rematou a instalación. Acepta para que se reinicie a VM.</li>
+  <p><img src="Captura031.png" alt="Rematou a instalación" style="width:700px;height:500px;"></p>
+  </ol>
+ </body>
+</html>
