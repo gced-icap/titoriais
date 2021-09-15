@@ -7,11 +7,12 @@
  <body>
 
   <h1>Instalación de Ubuntu 18.04 Server minimal nunha VM de VirtualBox</h1>
-  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Ubuntu 18.04 Server minimal coas opcións que hai que seleccionar en cada paso. </p>
+  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Ubuntu 18.04 Server minimal coas opcións que hai que seleccionar en cada paso. 
   <ol>
   <li><a href="http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-amd64/current/images/netboot/mini.iso">Descarga desde aquí</a> a imaxe ISO da versión <i>MinimalCD</i> do Ubuntu Server 18.04.<p/></li>
 
-  <li>Renomea a imaxe ISO descargada como <b>ubuntu-18_04-mini.iso</b><p/></li>
+  <li>Renomea a imaxe ISO descargada como <b>ubuntu-18_04-mini.iso</b><p/>
+<b>OLLO en Windows: non fagas dobre click no arquivo descargado.</b><br/><br/> Se o fixeches, Windows montou a imaxe ISO como un CD virtual. Para poder renomeala tes que escoller a opción <b>Expulsar</b> no menú de contexto do arquivo.</li>
 
   <li>Inicia a VM que creaches no VirtualBox e selecciona a imaxe ISO descargada como disco de arranque. Se che dera problemas accedendo á imaxe ISO, podes probar a apagar a VM, montar a imaxe ISO "manualmente" nas opcións de almacenamento da VM, como se indica na captura, e iniciar de novo a VM.</li>
   <p><img src="Captura000.png" alt="Montaxe manual da ISO" style="width:650px;height:403px;"></p>
@@ -37,7 +38,8 @@
 
   <li>Configuración do disco. Vamos escoller a opción máis simple que consiste nun modo guiado que usa o disco completo. O instalador encargarase de todo automaticamente.</li>  <p><img src="Captura021.png" alt="Configuración do disco" style="width:700px;height:600px;"></p>  <p><img src="Captura022.png" alt="Configuración do disco" style="width:700px;height:600px;"></p>  <li>Acepta particionar o disco e formatar a partición.</li>  <p><img src="Captura023.png" alt="Configuración do disco" style="width:700px;height:600px;"></p>  <li>Comeza a instalación do sistema. Paciencia. Este é o paso da instalación que require máis tempo.</li>  <p><img src="Captura024.png" alt="Instalación do sistema base" style="width:700px;height:600px;"></p>  <p><img src="Captura025.png" alt="Configuración de apt" style="width:700px;height:600px;"></p>  <p><img src="Captura026.png" alt="Instalación de software" style="width:700px;height:600px;"></p>  <li>Escolle a opción sen actualizacións automáticas. Como a VM vamos usala só para probas, así evitamos que as actualizacións interfiran e consuman recursos que poden facer que a VM vaia moi lenta.</li>  <p><img src="Captura027.png" alt="Configuración de actualizacións" style="width:700px;height:600px;"></p>
 
-  <li>A instalación continúa. Paciencia.</li>  <p><img src="Captura028.png" alt="Instalación de software" style="width:700px;height:600px;"></p>  <li>Escolle instalar as coleccións de software indicadas na captura: Ubuntu desktop, OpenSSH Server e Basic Ubuntu server.</li>  <p><img src="Captura029.png" alt="Escolla de software" style="width:700px;height:600px;"></p>  <li>Realízase a instalación do software escollido. Paciencia. Isto tamén vai levar un cacho.</li>  <p><img src="Captura030.png" alt="Instalación de software" style="width:700px;height:600px;"></p> 
+  <li>A instalación continúa. Paciencia.</li>  <p><img src="Captura028.png" alt="Instalación de software" style="width:700px;height:600px;"></p>  <li>Escolle instalar as coleccións de software indicadas na captura: Ubuntu desktop, OpenSSH Server e Basic Ubuntu server.<br/><br/>
+<b>OLLO que para escoller opcións hai que usar a BARRA ESPACIADORA e non a tecla RETURN</b></li>  <p><img src="Captura029.png" alt="Escolla de software" style="width:700px;height:600px;"></p>  <li>Realízase a instalación do software escollido. Paciencia. Isto tamén vai levar un cacho.</li>  <p><img src="Captura030.png" alt="Instalación de software" style="width:700px;height:600px;"></p> 
   <li>Acepta instalar GRUB, o cargador que xestiona o arranque do SO desde o disco ríxido.</li>  <p><img src="Captura031.png" alt="Configuración de GRUB" style="width:700px;height:600px;"></p>  <p><img src="Captura032.png" alt="Configuración de GRUB" style="width:700px;height:600px;"></p>  <li>Escolle SI para indicar que o reloxo do sistema utiliza a hora UTC.</li>  <p><img src="Captura033.png" alt="Reloxo en hora UTC" style="width:700px;height:600px;"></p>  <li>Instálase o que falta. Xa estamos rematando.</li>  <p><img src="Captura034.png" alt="Instalación de software" style="width:700px;height:600px;"></p> 
   <li>Rematou a instalación. Antes de aceptar para continuar, extrae o CD de instalación (a imaxe ISO de Ubuntu) desde VirtualBox, na configuración do almacenamento da VM. </li>
   <p><img src="Captura036.png" alt="Desmontaxe da ISO" style="width:650px;height:403px;"></p>
