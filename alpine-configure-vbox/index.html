@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset= "utf-8">
+  <title> Configuración de Alpine Linux 3.16 </title>
+ </head>
+ <body>
+
+  <h1>Configuración de Alpine Linux 3.16 nunha VM de VirtualBox</h1>
+  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a configuración inicial de Alpine Linux 3.16 coas accións que hai que realizar en cada paso. 
+
+  <ol>
+
+  <li>Desde VirtualBox inicia a VM na que instalaches Alpine e inicia sesión co usuario que creaches durante a instalación.</li>
+  <p><img src="Captura000.png" alt="Inicio de sesión" style="width:700px;height:435px;"></p>
+
+  <li>Comproba que repositorios de paquetes software están activados co comando <b>cat /etc/apk/repositories</b>.</li>
+  <p><img src="Captura001.png" alt="Configuración repositorios" style="width:700px;height:100px;"></p>
+  <p>O ficheiro /etc/apk/repositories é onde se garda a configuración de repositorios. Os repositorios son servidores en Internet desde onde se fan as descargas cando se instala algún programa. A saída mostra unha liña por cada repositorio e as que teñen o símbolo do cancelo <b>#</b> diante interprétanse como comentarios. É dicir, só está activado o repositorio principal (main) de Alpine, xa que é a única liña que non ten o símbolo do comentario diante.</p>
+
+  <li>Vamos a necesitar instalar certos programas que están no repositorio da comunidade (community). Este repositorio é o que está na terceira liña do ficheiro /etc/apk/repositories e está desactivado (ten o símbolo <b>#</b> diante). Para activalo necesitamos eliminar o símbolo do cancelo desa liña. Isto faise co comando <b>sed -i '3s/#//' /etc/apk/repositories</b>.</li>
+  <p><img src="Captura002.png" alt="Activar comunity" style="width:700px;height:40px;"></p>
+  <p>O comando amosa un erro indicando que non temos os permisos suficientes (Permission denied) para modificar o ficheiro /etc/apk/repositories. O noso usuario pode executar comandos con permisos de administrador (como root) poñendo o comando <b>doas</b> diante. Esta funcionalidade foi configurada automaticamente durante a instalación de Alpine.</p> 
+
+  <li>Repite o comando anterior poñendo <b>doas</b> diante para executalo con permisos de administrador (como usuario root).</li>  <p><img src="Captura003.png" alt="Community activado" style="width:700px;height:135px;"></p>
+  <p>Agora si nos permite executalo e podemos ver ao executar de novo <b>cat /etc/apk/repositories</b> que a terceira liña xa non ten o símbolo do cancelo diante e polo tanto, o repositorio da comunidade (community) está activado.</p>   <li>Actualiza o índice de paquetes dispoñíbel co comando <b>doas apk update</b>.</li> 
+  <p><img src="Captura004.png" alt="Actualizar paquetes" style="width:700px;height:100px;"></p>
+  <p>Na saída pode verse que se actualizaron os índices desde os dous repositorios que temos activados (main e community).</p>  <li>Vamos instalar un ambiente gráfico de escritorio (GUI) na VM. Alpine, ao igual que acontece con outros Linux, soporta diferentes GUI. Nós vamos instalar Xfce que non demanda demasiados recursos, polo que é unha boa opción para VM. Executa o comando <b>doas setup-desktop xfce</b>.</li> 
+  <p>O proceso de instalación leva un cacho xa que ten que descargar e instalar más de 200 paquetes. Paciencia.<br>
+  <img src="Captura005.png" alt="Instalar Xfce" style="width:700px;height:400px;"><br>
+  A instalación rematou correctamente.<br>
+  <img src="Captura006.png" alt="Xfce instalado" style="width:700px;height:400px;"></p>
+
+  <li>Apaga a VM executando o comando <b>doas poweroff</b> ou pechando a súa xanela (non é necesario gardar o estado) e volve iniciala desde VirtualBox.</li></p> 
+
+  <li>Agora a VM xa se inicia automaticamente no modo gráfico. Inicia sesión co teu usuario. Ten en conta que debido a un problema en Xfce coa configuración do teclado, ao escribir o contrasinal no diálogo de inicio de sesión as teclas interprétanse igual que nun teclado americano (p.e. o guión escríbese premendo a tecla que está á dereita do 0).</li> 
+  <p><img src="Captura007.png" alt="Inicio sesión Xfce" style="width:700px;height:400px;"></p>
+
+  <li>Unha vez iniciada a sesión accedemos ao ambiente de escritorio de Xfce.</li> 
+  <p><img src="Captura008.png" alt="Inicio sesión Xfce" style="width:700px;height:400px;"></p>
+
+  <li>Configura o teclado.</li>
+   <p>Accede a Applications->Settings->Keyboard<br> 
+   <img src="Captura009.png" alt="Configuración do teclado" style="width:700px;height:400px;"><br>
+   Na lapela <b>Layout</b> desactiva a opción <b>Use system defaults</b> e engade unha nova configuración para o teclado na primeira posición da listaxe. Ten en conta que debido ao problema comentado anteriormente, esta configuración parece funcionar só dentro da sesión Xfce pero non no diálogo de inicio de sesión. Nas capturas vese un exemplo para un teclado con teclas de Windows.<br> 
+  <img src="Captura010.png" alt="Configuración do teclado" style="width:700px;height:400px;"><br>
+  <img src="Captura011.png" alt="Configuración do teclado" style="width:700px;height:400px;"></p>
+
+  <li>Xfce non instala por defecto un editor de texto. Abre un terminal e instala un executando o comando <b>doas apk add mousepad</b>.</li>
+  <p><img src="Captura012.png" alt="Instalar Mousepad" style="width:700px;height:400px;"><br>
+  Unha vez instalado podes abrilo desde Applications->Accesories->Mousepad<br>
+  <img src="Captura013.png" alt="Abrir Mousepad" style="width:700px;height:400px;"></p>
+
+  <li>Podes curiosear o que queiras no ambiente de escritorio. Unha vez remates de curiosear <b>saca a captura para a memoria de xustificación que se indica no PDF da práctica</b>.</li></p>
+
+  <li>Apaga a VM. Na captura vese como facelo desde o ambiente de escritorio. Tamén se pode facer desde o terminal co comando <b>doas poweroff</b> ou pechando a xanela da VM.</li></p>
+  <img src="Captura014.png" alt="Apagar VM" style="width:700px;height:400px;"></p>
+
+  </ol>
+ </body>
+</html>
