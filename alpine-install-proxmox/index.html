@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset= "utf-8">
+  <title> Instalación de Alpine Linux 3.16 </title>
+ </head>
+ <body>
+
+  <h1>Instalación de Alpine Linux 3.16 nunha VM de Proxmox</h1>
+  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Alpine Linux 3.16 coas opcións que hai que seleccionar en cada paso. 
+  <p style="font-size:125%;"><b>A maioría dos pasos son semellantes ao que xa se fixo na práctica 0, pero OLLO que hai algunha pequena diferenza.</b></p>
+  <ol>
+
+  <li>Inicia a VM que creaches no Proxmox e que ten montada no CD virtual a imaxe ISO de Alpine Linux 3.16.</li><br>
+
+  <li>Se a VM se inicia correctamente, cargarase unha versión inicial mínima de Alpine e, accedendo á consola da VM, poderás iniciar sesión usando o usuario <b>root</b> sen contrasinal.</li>
+  <p><img src="Captura000.png" alt="Inicio de sesión" style="width:700px;height:375px;"></p>
+
+  <li>Para instalar Alpine executa o comando <b>setup-alpine</b>. 
+  <p>Como de momento o teclado non está configurado na VM, para escribir o guión terás que premer a tecla que está situada <b>á dereita do 0</b> (é a tecla usada para o guión nos teclados americanos). Se ao premer esa tecla no teu teclado non aparece o guión, terás que probar con outras.</p></li>  <p><img src="Captura002c.png" alt="Comando setup-alpine" style="width:700px;height:200px;"></p>  <li>Configura o teclado. 
+  <p>Na disposición (layout) escribe <b>es</b>.</p> 
+  <p><img src="Captura003c.png" alt="Configuración do teclado" style="width:700px;height:150px;"></p>
+
+  <p>Na variante depende do teclado que teñas (p.e. <b>es-winkeys</b> para un teclado con teclas Windows, <b>es-mac</b> para un teclado Mac). En caso de dúbida escribe de novo <b>es</b>.</p></li>  <p><img src="Captura004c.png" alt="Configuración do teclado" style="width:700px;height:40px;"></p>
+
+  <li>Configura o nome que terá a VM na rede. Usa <b>vm100</b>.</li>  <p><img src="Captura005.png" alt="Nome do host" style="width:700px;height:50px;"></p>
+
+  <li>Configura a interface de rede. 
+  <p>Acepta (sen escribir nada) para configurar a interface <b>eth0</b> que é a opción por defecto. Esta interface correspóndese co único adaptador virtual de rede que ten a VM.</p>
+  <p><img src="Captura006.png" alt="Configuración da rede" style="width:700px;height:50px;"></p>
+
+  <p>Neste caso non podemos usar DHCP para asignar unha configuración de rede automaticamente porque non temos un no servidor Proxmox. Vamos a asignar manualmente os valores da configuración de rede. Cubre os seguintes datos a medida que se che vaian pedindo:<p/>
+
+  <ul>
+  <li>Enderezo IP: <b>10.10.10.100/24</b></li>
+  <li>Gateway: <b>10.10.10.2</b></li>
+  </ul></li>
+  <p><img src="Captura007.png" alt="Configuración da rede" style="width:700px;height:35px;"></p>
+
+  <p>Escribe <b>n</b> para indicar que non queremos facer máis configuracións manuais da rede.<p/>
+  <p><img src="Captura008.png" alt="Configuración da rede" style="width:700px;height:110px;"></p>
+
+  <p>Escribe <b>icap</b> para o nome de dominio DNS e a IP do servidor de nomes que proporciona Virtualbox xa preconfigurado na interface NAT: <b>10.0.2.3</b>. <p/>
+  <p><img src="Captura009.png" alt="Configuración da rede" style="width:700px;height:35px;"></p>
+
+  <li>Configura o contrasinal para o usuario <b>root</b> (o administrador). <b>É importante que despois te lembres del</b>. Un exemplo fácil de lembrar serían as túas iniciais separadas do curso actual por un guión (exemplo: xcpm-2122)</li>
+  <p><img src="Captura007c.png" alt="Contrasinal de root" style="width:700px;height:70px;"></p>
+
+  <li>Configura o fuso horario. Na zona escribe <b>Europe</b> e na subzona escribe <b>Madrid</b>.</li>  <p><img src="Captura008c.png" alt="Configuración do fuso horario" style="width:700px;height:80px;"></p>
+
+  <li>Acepta (sen escribir nada) a opción por defecto para non configurar un proxy para o acceso a Internet.</li>  <p><img src="Captura009c.png" alt="Configuración do proxy" style="width:700px;height:25px;"></p>
+
+  <li>Escolle o repositorio que se usará para descargar os paquetes software que se instalen. Escribe <b>r</b> para que se escolla ao chou un dos servidores da listaxe.</li>
+  <p><img src="Captura011c.png" alt="Configuración mirror" style="width:700px;height:175px;"></p>
+
+  <li>Configura a túa conta de usuario. Podes usar as tuas iniciais como nome para o login. Para a chave SSH do usuario acepta (sen escribir nada) a opción por defecto.</li>  <p><img src="Captura012c.png" alt="Configuración da conta de usuario" style="width:700px;height:175px;"></p>
+
+  <li>Configura o servidor SSH (o que se usa para iniciar sesións seguras na VM). Acepta (sen escribir nada) para usar o servidor por defecto (OpenSSH).</li>
+  <p><img src="Captura013c.png" alt="Configuración de SSH" style="width:700px;height:75px;"></p>
+
+  <li>Configura o disco. 
+  <p>Escribe <b>sda</b> para usar o único disco ríxido que temos na VM. No tipo de instalación escribe <b>sys</b> para realizar unha instalación estándar.</p></li>  <p><img src="Captura014c.png" alt="Configuración do disco" style="width:700px;height:85px;"></p>
+  <p>O instalador procederá a realizar o particionamento do disco.<br>
+  <img src="Captura015c.png" alt="Particionamento do disco" style="width:700px;height:25px;"></p>
+
+  <li>Instalación do sistema. Escribe <b>y</b> para aceptar formatar o disco e instalar Alpine nel. Este é o paso da instalación ao que lle leva máis tempo.</li>  <p><img src="Captura016c.png" alt="Instalación do sistema" style="width:700px;height:125px;"></p>
+
+  <li>Rematou a instalación.  
+  <p><img src="Captura017.png" alt="Rematou a instalación" style="width:700px;height:35px;"></p>
+
+  <li>Apaga a VM executando o comando <b>poweroff</b>.</li> 
+  <p><img src="Captura018.png" alt="Apagar a VM" style="width:700px;height:35px;"></p>
+
+  </ol>
+ </body>
+</html>
