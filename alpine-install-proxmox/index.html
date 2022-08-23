@@ -13,7 +13,7 @@
 
   <li>Inicia a VM que creaches no Proxmox e que ten montada no CD virtual a imaxe ISO de Alpine Linux 3.16.</li><br>
 
-  <li>Se a VM se inicia correctamente, cargarase unha versión inicial mínima de Alpine e, accedendo á consola da VM, poderás iniciar sesión usando o usuario <b>root</b> sen contrasinal.</li>
+  <li>Se a VM se inicia correctamente, cargarase unha versión inicial mínima de Alpine e, accedendo á consola da VM, poderás iniciar sesión usando o usuario <b>root</b> sen contrasinal. O proceso inicial de arranque pode demorar un pouco, ten paciencia.</li>
   <p><img src="Captura000.png" alt="Inicio de sesión" style="width:700px;height:375px;"></p>
 
   <li>Para instalar Alpine executa o comando <b>setup-alpine</b>. 
@@ -29,7 +29,7 @@
   <p>Acepta (sen escribir nada) para configurar a interface <b>eth0</b> que é a opción por defecto. Esta interface correspóndese co único adaptador virtual de rede que ten a VM.</p>
   <p><img src="Captura006.png" alt="Configuración da rede" style="width:700px;height:50px;"></p>
 
-  <p>Neste caso non podemos usar DHCP para asignar unha configuración de rede automaticamente porque non temos un no servidor Proxmox. Vamos a asignar manualmente os valores da configuración de rede. Cubre os seguintes datos a medida que se che vaian pedindo:<p/>
+  <p>Neste caso non podemos usar DHCP para asignar unha configuración de rede automaticamente porque non temos un servizo DHCP configurado no servidor Proxmox. Vamos asignar manualmente os valores da configuración de rede. Cubre os seguintes datos a medida que se che vaian pedindo:<p/>
 
   <ul>
   <li>Enderezo IP: <b>10.10.10.100/24</b></li>
@@ -37,7 +37,7 @@
   </ul></li>
   <p><img src="Captura007.png" alt="Configuración da rede" style="width:700px;height:35px;"></p>
 
-  <p>Escribe <b>n</b> para indicar que non queremos facer máis configuracións manuais da rede.<p/>
+  <p>Escribe <b>n</b> (ou acepta sen escribir nada) para indicar que non queremos facer máis configuracións manuais da rede.<p/>
   <p><img src="Captura008.png" alt="Configuración da rede" style="width:700px;height:110px;"></p>
 
   <p>Escribe <b>icap</b> para o nome de dominio DNS e a IP do servidor de nomes que proporciona Virtualbox xa preconfigurado na interface NAT: <b>10.0.2.3</b>. <p/>
