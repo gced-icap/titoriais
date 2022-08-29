@@ -9,7 +9,7 @@
   <h1>Instalación de Alpine Linux 3.16 nunha VM de VirtualBox</h1>
   <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Alpine Linux 3.16 coas opcións que hai que seleccionar en cada paso. 
   <ol>
-  <li><a href="https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.1-x86_64.iso">Descarga desde aquí</a> a imaxe ISO da versión <i>Virtual</i> (optimizada para VM) do Apache Linux 3.16<p/></li>
+  <li><a href="https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.1-x86_64.iso">Descarga desde aquí</a> a imaxe ISO da versión <i>Virtual</i> (optimizada para VM) do Alpine Linux 3.16<p/></li>
 
   <li>Inicia a VM que creaches no VirtualBox e selecciona a imaxe ISO descargada (<b>alpine-virt-3.16.1-x86_64.iso</b>) como disco de arranque. Se che dera problemas accedendo á imaxe ISO, podes probar a apagar a VM, montar a imaxe ISO "manualmente" nas opcións de almacenamento da VM, como se indica na captura, e iniciar de novo a VM.</li>
   <p><img src="Captura000.png" alt="Montaxe manual da ISO" style="width:700px;height:435px;"></p>
@@ -17,14 +17,21 @@
   <li>Se a VM se iniciou correctamente cargarase unha versión inicial mínima de Alpine. Para iniciar sesión usa o usuario <b>root</b> sen contrasinal.</li>
   <p><img src="Captura001.png" alt="Inicio de sesión" style="width:700px;height:150px;"></p>
 
-  <li>Para instalar Alpine executa o comando <b>setup-alpine</b>. Como de momento o teclado non está configurado na VM, para escribir o guión terás que premer a tecla que está situada <b>á dereita do 0</b> (é a tecla usada para o guión nos teclados americanos). Se ao premer esa tecla no teu teclado non aparece o guión, terás que probar con outras.</li>  <p><img src="Captura002.png" alt="Comando setup-alpine" style="width:700px;height:200px;"></p>  <li>Configura o teclado. Na disposición (layout) escribe <b>es</b>. Na variante depende do teclado que teñas (p.e. <b>es-winkeys</b> para un teclado con teclas Windows, <b>es-mac</b> para un teclado Mac). En caso de dúbida escribe de novo <b>es</b>.</li>  <p><img src="Captura003.png" alt="Configuración do teclado" style="width:700px;height:150px;"></p>  <p><img src="Captura004.png" alt="Configuración do teclado" style="width:700px;height:40px;"></p>
+  <li>Para instalar Alpine executa o comando <b>setup-alpine</b>. Como de momento o teclado non está configurado na VM, para escribir o guión terás que premer a tecla que está situada <b>á dereita do 0</b> (é a tecla usada para o guión nos teclados americanos). Se ao premer esa tecla no teu teclado non aparece o guión, terás que probar con outras.
+  <p><b>IMPORTANTE: se por algún motivo tiveras que interromper a instalación, podes facelo pulsando Ctrl+C e volver iniciala desde este paso.</b></p></li>  <p><img src="Captura002.png" alt="Comando setup-alpine" style="width:700px;height:200px;"></p>
+  <li>Configura o teclado. 
+  <p>Na disposición (layout) escribe <b>es</b>.</p>   <p><img src="Captura003.png" alt="Configuración do teclado" style="width:700px;height:150px;"></p>
+
+  <p>Na variante depende do teclado que teñas (p.e. <b>es-winkeys</b> para un teclado con teclas Windows, <b>es-mac</b> para un teclado Mac). En caso de dúbida escribe de novo <b>es</b>.</li>  <p><img src="Captura004.png" alt="Configuración do teclado" style="width:700px;height:40px;"></p>
 
   <li>Configura o nome que terá a VM na rede. <b>Usa como nome as tuas iniciais e o curso actual</b>. Como VirtualBox conecta a VM a Internet a través dunha NAT, este nome non vai ser visíbel fora do teu computador.</li>  <p><img src="Captura005.png" alt="Nome do host" style="width:700px;height:50px;"></p>
 
-  <li>Configura a interface de rede. Acepta (sen escribir nada) as opcións por defecto. Alpine configurará a interface <b>eth0</b> (que se corresponde co único adaptador virtual de rede que temos na VM, podes comprobalo nas propiedades de rede da VM no VirtualBox) para que obteña automaticamente unha IP cando se inicie a VM. Para iso usaremos un servizo denominado DHCP que xa ven preconfigurado co VirtualBox. Na captura pode verse como se lle asigna a IP 10.0.2.15 á VM usando DHCP.</li>
+  <li>Configura a interface de rede. 
+  <p>Acepta (sen escribir nada) as opcións por defecto. Alpine configurará a interface <b>eth0</b> (que se corresponde co único adaptador virtual de rede que temos na VM, podes comprobalo nas propiedades de rede da VM no VirtualBox) para que obteña automaticamente unha IP cando se inicie a VM. Para iso usaremos un servizo denominado DHCP que xa ven preconfigurado co VirtualBox. Na captura pode verse como se lle asigna a IP 10.0.2.15 á VM usando DHCP.</p></li>
   <p><img src="Captura006.png" alt="Configuración da rede" style="width:700px;height:200px;"></p>
 
   <li>Configura o contrasinal para o usuario <b>root</b> (o administrador). <b>É importante que despois te lembres del</b>. Un exemplo fácil de lembrar serían as túas iniciais separadas do curso actual por un guión (exemplo: xcpm-2122)</li>
+  <p><b>IMPORTANTE: non uses caracteres "raros" para o contrasinal</b>, porque vamos ter que usalo nalgunha ocasión co teclado sen configurar. Se usas o guión lembra que cando o teclado non estea configurado terás que premer a tecla que está situada <b>á dereita do 0</b>.</p>
   <p><img src="Captura007.png" alt="Contrasinal de root" style="width:700px;height:70px;"></p>
 
   <li>Configura o fuso horario. Na zona escribe <b>Europe</b> e na subzona escribe <b>Madrid</b>.</li>  <p><img src="Captura008.png" alt="Configuración do fuso horario" style="width:700px;height:80px;"></p>
@@ -37,12 +44,19 @@
   <li>Escolle o repositorio que se usará para descargar os paquetes software que se instalen. Escribe <b>r</b> para que se escolla ao chou un dos servidores da listaxe.</li>
   <p><img src="Captura011.png" alt="Configuración mirror" style="width:700px;height:175px;"></p>
 
-  <li>Configura a túa conta de usuario. Podes usar as tuas iniciais como nome para o login. Para a chave SSH do usuario acepta (sen escribir nada) a opción por defecto.</li>  <p><img src="Captura012.png" alt="Configuración da conta de usuario" style="width:700px;height:175px;"></p>
+ <li>Comproba nesta páxina: <a href="https://mirrors.alpinelinux.org/">https://mirrors.alpinelinux.org</a> que o repositorio escollido no paso anterior (<b>alpine.sakamoto.pl</b> no exemplo) estea actualizado para a versión 3.16 de Alpine. Terás que buscar o repositorio que se escolleu no teu caso e comprobar no seu estado que aparece en OK a columna v3.16, igual que se ve na seguinte captura para o repositorio do exemplo. Se non fora así ese repositorio non nos vai valer para pasos posteriores, así que terás que interromper a instalación pulsando Ctrl+C e volver comezar desde o paso 4.</li>
+ <p><img src="Captura011b.png" alt="Estado mirror" style="width:700px;height:472px;"></p>
+
+  <li>Configura a túa conta de usuario. Podes usar as tuas iniciais como nome para o login. Para a chave SSH do usuario acepta (sen escribir nada) a opción por defecto.</li>
+  <p><b>IMPORTANTE: non uses caracteres "raros" para o contrasinal</b>, porque vamos ter que usalo nalgunha ocasión co teclado sen configurar. Se usas o guión lembra que cando o teclado non estea configurado terás que premer a tecla que está situada <b>á dereita do 0</b>.</p>  <p><img src="Captura012.png" alt="Configuración da conta de usuario" style="width:700px;height:175px;"></p>
+
+  <p><b>IMPORTANTE:</b> asegúrate de que se configura correctamente o usuario (que non aparece ningunha mensaxe de erro e que aparecen as que indican que se instalaron correctamente o <b>doas</b> e o <b>busybox</b>). Se non fora así terás que interromper a instalación pulsando Ctrl+C e volver comezar desde o paso 4.</p>
 
   <li>Configura o servidor SSH (o que se usa para iniciar sesións seguras na VM). Acepta (sen escribir nada) para usar o servidor por defecto (OpenSSH).</li>
   <p><img src="Captura013.png" alt="Configuración de SSH" style="width:700px;height:75px;"></p>
 
-  <li>Configura o disco. Escribe <b>sda</b> para usar o único disco ríxido que temos na VM (podes comprobalo nas propiedades de almacenamento da VM no VirtualBox). No tipo de instalación escribe <b>sys</b> para realizar unha instalación estándar. </li>  <p><img src="Captura014.png" alt="Configuración do disco" style="width:700px;height:85px;"></p>
+  <li>Configura o disco. 
+  <p>Escribe <b>sda</b> para usar o único disco ríxido que temos na VM (podes comprobalo nas propiedades de almacenamento da VM no VirtualBox). No tipo de instalación escribe <b>sys</b> para realizar unha instalación estándar.</p></li>  <p><img src="Captura014.png" alt="Configuración do disco" style="width:700px;height:85px;"></p>
   <p>O instalador procederá a realizar o particionamento do disco.<br>
   <img src="Captura015.png" alt="Particionamento do disco" style="width:700px;height:25px;"></p>
 
