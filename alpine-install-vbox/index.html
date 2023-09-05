@@ -11,7 +11,7 @@
   <ol>
   <li><a href="https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.1-x86_64.iso">Descarga desde aquí</a> a imaxe ISO da versión <i>Virtual</i> (optimizada para VM) do Alpine Linux 3.16<p/></li>
 
-  <li>Inicia a VM que creaches no VirtualBox e selecciona a imaxe ISO descargada (<b>alpine-virt-3.16.1-x86_64.iso</b>) como disco de arranque. Se che dera problemas accedendo á imaxe ISO, podes probar a apagar a VM, montar a imaxe ISO "manualmente" nas opcións de almacenamento da VM, como se indica na captura, e iniciar de novo a VM.</li>
+  <li>Inicia a VM que creaches no VirtualBox e, no diálogo que aparece para montar o DVD desde o que instalar o SO, selecciona a imaxe ISO descargada (<b>alpine-virt-3.16.1-x86_64.iso</b>) e reinicia a VM. Se che dera problemas accedendo á imaxe ISO, podes probar a apagar a VM, montar a imaxe ISO "manualmente" nas opcións de almacenamento da VM, como se indica na captura, e iniciar de novo a VM.</li>
   <p><img src="Captura000.png" alt="Montaxe manual da ISO" style="width:700px;height:435px;"></p>
 
   <li>Se a VM se iniciou correctamente cargarase unha versión inicial mínima de Alpine. Para iniciar sesión usa o usuario <b>root</b> sen contrasinal.</li>
@@ -27,7 +27,7 @@
   <li>Configura o nome que terá a VM na rede. <b>Usa como nome as tuas iniciais e o curso actual</b>. Como VirtualBox conecta a VM a Internet a través dunha NAT, este nome non vai ser visíbel fora do teu computador.</li>  <p><img src="Captura005.png" alt="Nome do host" style="width:700px;height:50px;"></p>
 
   <li>Configura a interface de rede. 
-  <p>Acepta (sen escribir nada) as opcións por defecto. Alpine configurará a interface <b>eth0</b> (que se corresponde co único adaptador virtual de rede que temos na VM, podes comprobalo nas propiedades de rede da VM no VirtualBox) para que obteña automaticamente unha IP cando se inicie a VM. Para iso usaremos un servizo denominado DHCP que xa ven preconfigurado co VirtualBox. Na captura pode verse como se lle asigna a IP 10.0.2.15 á VM usando DHCP.</p></li>
+  <p>Acepta (sen escribir nada) as opcións por defecto. Alpine configurará a interface <b>eth0</b> para que obteña automaticamente unha IP cando se inicie a VM. Esta interface correspóndese co único adaptador virtual de rede que temos na VM (podes comprobalo nas propiedades de rede da VM no VirtualBox). Para obter automaticamente a IP úsase un servizo denominado DHCP que xa ven preconfigurado co VirtualBox. Na captura pode verse como se lle asigna a IP 10.0.2.15 á VM usando DHCP.</p></li>
   <p><img src="Captura006.png" alt="Configuración da rede" style="width:700px;height:200px;"></p>
 
   <li>Configura o contrasinal para o usuario <b>root</b> (o administrador). <b>É importante que despois te lembres del</b>. Un exemplo fácil de lembrar serían as túas iniciais separadas do curso actual por un guión (exemplo: xcpm-2122)</li>
@@ -41,11 +41,12 @@
   <li>Configura o cliente para o servizo horario (NTP). Acepta (sen escribir nada) para usar o cliente por defecto (chrony).</li>
   <p><img src="Captura010.png" alt="Configuración de NTP" style="width:700px;height:20px;"></p>
 
-  <li>Escolle o repositorio que se usará para descargar os paquetes software que se instalen. Escribe <b>r</b> para que se escolla ao chou un dos servidores da listaxe.</li>
-  <p><img src="Captura011.png" alt="Configuración mirror" style="width:700px;height:175px;"></p>
+  <li>Escolle o repositorio que se usará para descargar os paquetes software que se instalen. 
+  <p>Para elo terás que comprobar na páxina: <a href="https://mirrors.alpinelinux.org/">https://mirrors.alpinelinux.org</a> se algún dos repositorios da listaxe que se che mostra está actualizado para a versión 3.16 de Alpine. Tes que procurar un repositorio dos da listaxe que estea en estado OK na columna v3.16, igual que se ve no exemplo para o repositorio <b>mirror.mangohost.net</b>.</p>
+  <p><img src="Captura011b.png" alt="Estado mirror" style="width:700px;height:472px;"></p>
 
- <li>Comproba nesta páxina: <a href="https://mirrors.alpinelinux.org/">https://mirrors.alpinelinux.org</a> que o repositorio escollido no paso anterior (<b>alpine.sakamoto.pl</b> no exemplo) estea actualizado para a versión 3.16 de Alpine. Terás que buscar o repositorio que se escolleu no teu caso e comprobar no seu estado que aparece en OK a columna v3.16, igual que se ve na seguinte captura para o repositorio do exemplo. Se non fora así ese repositorio non nos vai valer para pasos posteriores, así que terás que interromper a instalación pulsando Ctrl+C e volver comezar desde o paso 4.</li>
- <p><img src="Captura011b.png" alt="Estado mirror" style="width:700px;height:472px;"></p>
+  <p>Escribe o número que o repositorio ten na listaxe para escollelo (no exemplo o repositorio <b>mirror.mangohost.net</b> ten o número 69 na listaxe).</li>
+  <p><img src="Captura011.png" alt="Configuración mirror" style="width:700px;height:200px;"></p>
 
   <li>Configura a túa conta de usuario. Podes usar as tuas iniciais como nome para o login. Para a chave SSH do usuario acepta (sen escribir nada) a opción por defecto.</li>
   <p><b>IMPORTANTE: non uses caracteres "raros" para o contrasinal</b>, porque vamos ter que usalo nalgunha ocasión co teclado sen configurar. Se usas o guión lembra que cando o teclado non estea configurado terás que premer a tecla que está situada <b>á dereita do 0</b>.</p>  <p><img src="Captura012.png" alt="Configuración da conta de usuario" style="width:700px;height:175px;"></p>
