@@ -2,84 +2,84 @@
 <html>
  <head>
   <meta charset= "utf-8">
-  <title> Instalación de Alpine Linux 3.16 </title>
+  <title> Instalación de Alpine Linux </title>
  </head>
  <body>
 
-  <h1>Instalación de Alpine Linux 3.16 nunha VM de Proxmox</h1>
-  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Alpine Linux 3.16 coas opcións que hai que seleccionar en cada paso. 
-  <p style="font-size:125%;"><b>A maioría dos pasos son semellantes ao que xa se fixo na práctica 0, pero OLLO que hai algunha pequena diferenza.</b></p>
+  <h1>Instalación de Alpine Linux nunha VM de Proxmox</h1>
+  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Alpine Linux 3.20 coas opcións que hai que seleccionar en cada paso. 
+  <p style="font-size:125%;"><b>IMPORTANTE:</b> aínda que algúns pasos son semellantes ao que se fixo na práctica 0, OLLO que hai bastantes diferenzas e pasos novos.</b></p>
   <ol>
 
-  <li>Inicia a VM que creaches no Proxmox e que ten montada no CD virtual a imaxe ISO de Alpine Linux 3.16.</li><br>
+  <li>Inicia a VM que creaches no Proxmox e que ten montada no CD virtual a imaxe ISO de Alpine Linux.</li><br>
 
   <li>Se a VM se inicia correctamente, cargarase unha versión inicial mínima de Alpine e, accedendo á consola da VM, poderás iniciar sesión usando o usuario <b>root</b> sen contrasinal. O proceso inicial de arranque pode demorar un pouco, ten paciencia.</li>
-  <p><img src="Captura000.png" alt="Inicio de sesión" style="width:700px;height:375px;"></p>
+  <p><img src="Captura000.png" alt="Inicio de sesión" style="width:1000px;"></p>
 
-  <li>Para instalar Alpine executa o comando <b>setup-alpine</b>. 
-  <p>Como de momento o teclado non está configurado na VM, para escribir o guión terás que premer a tecla que está situada <b>á dereita do 0</b> (é a tecla usada para o guión nos teclados americanos). Se ao premer esa tecla no teu teclado non aparece o guión, terás que probar con outras.</p></li>  <p><b>IMPORTANTE: se por algún motivo tiveras que interromper a instalación, podes facelo pulsando Ctrl+C e volver iniciala desde este paso.</b></p></li>
-  <p><img src="Captura002c.png" alt="Comando setup-alpine" style="width:700px;height:200px;"></p>  <li>Configura o teclado. 
+  <li>Para configurar os aspectos básicos de Alpine executa o comando <b>setup-alpine -q</b>. Como de momento o teclado non está configurado na VM, para escribir os guións terás que premer a tecla que está situada <b>á dereita do 0</b> (é a tecla usada para o guión nos teclados americanos). Se ao premer esa tecla no teu teclado non aparece o guión, terás que probar con outras.</li>
+  <p><img src="Captura002.png" alt="Comando setup-alpine -q" style="width:1000px"></p>
+
+  <li>Configura o teclado. 
   <p>Na disposición (layout) escribe <b>es</b>.</p> 
-  <p><img src="Captura003c.png" alt="Configuración do teclado" style="width:700px;height:150px;"></p>
+  <p><img src="Captura003.png" alt="Configuración do teclado" style="width:1000px"></p>
 
-  <p>Na variante depende do teclado que teñas (p.e. <b>es-winkeys</b> para un teclado con teclas Windows, <b>es-mac</b> para un teclado Mac). En caso de dúbida escribe de novo <b>es</b>.</p></li>  <p><img src="Captura004c.png" alt="Configuración do teclado" style="width:700px;height:40px;"></p>
+  <p>Na variante depende do teclado que teñas (p.e. <b>es-winkeys</b> para un teclado con teclas Windows). En caso de dúbida escribe de novo <b>es</b>.</li>
+  <p><img src="Captura004.png" alt="Configuración do teclado" style="width:1000px"></p>
 
-  <li>Configura o nome que terá a VM na rede. Usa <b>vm100</b>.</li>  <p><img src="Captura005.png" alt="Nome do host" style="width:700px;height:50px;"></p>
+  <p>O proceso remata con <b>erros</b> na configuración da interface de rede <b>eth0</b>. Esta interface correspóndese co único adaptador virtual de rede que ten a VM. Neste caso non podemos usar DHCP (a opción por defecto) para asignar unha configuración de rede automaticamente a dita interface porque non temos un servizo DHCP configurado no servidor Proxmox. Debido ao fallo na configuración de rede, tamén falla a configuración dos repositorios de software. Vamos a arranxar manualmente estes problemas nos seguintes pasos.</p>
+  <p><img src="Captura005.png" alt="Configuración" style="width:1000px;"></p>
 
-  <li>Configura a interface de rede. 
-  <p>Acepta (sen escribir nada) para configurar a interface <b>eth0</b> que é a opción por defecto. Esta interface correspóndese co único adaptador virtual de rede que ten a VM.</p>
-  <p><img src="Captura006.png" alt="Configuración da rede" style="width:700px;height:50px;"></p>
-
-  <p>Neste caso non podemos usar DHCP para asignar unha configuración de rede automaticamente porque non temos un servizo DHCP configurado no servidor Proxmox. Vamos asignar manualmente os valores da configuración de rede. Cubre os seguintes datos a medida que se che vaian pedindo:<p/>
-
+ <li>Para configurar manualmente a interface de rede <b>eth0</b>, executa o comando <b>setup-interfaces</b>.</p>
+ <p>Primeiro, acepta (sen escribir nada) a opción por defecto para configurar a interface <b>eth0</b>. Cubre os seguintes datos a medida que se che vaian pedindo:<p/>
   <ul>
-  <li>Enderezo IP: <b>10.10.10.100/24</b></li>
-  <li>Gateway: <b>10.10.10.2</b></li>
+    <li>Enderezo IP: <b>10.10.10.100/24</b></li>
+    <li>Gateway: <b>10.10.10.2</b></li>
   </ul></li>
-  <p><img src="Captura007.png" alt="Configuración da rede" style="width:700px;height:35px;"></p>
+ </li>
+ <p><img src="Captura005_001.png" alt="Configuración da rede" style="width:1000px;"></p>
+ <p>Escribe <b>n</b> (ou acepta sen escribir nada) para indicar que non queremos facer máis configuracións manuais da rede.<p/>
+ <p><img src="Captura005_002.png" alt="Configuración da rede" style="width:1000px;"></p>
+ <p><b>NOTA:</b> Se te trabucas configurando a interface, podes repetir este paso executando de novo o comando <b>setup-interfaces</b>.
+     
+  <li>Configura o nome que terá a VM na rede (o seu hostname) exectuando o comando <b>setup-hostname</b>. Usa <b>vm100</b></li>
+  <p><img src="Captura005_003.png" alt="Configuración do DNS" style="width:1000px;"></p>
+  <p><b>NOTA:</b> Podes repetir o comando <b>setup-hostname</b> no caso de introducir mal o hostname.
+  
+  <li>Configura o nome de dominio DNS e a IP do servidor de nomes exectuando o comando <b>setup-dns</b>.</li>
+  <p>Escribe <b>icap</b> para o nome de dominio DNS e a IP do servidor de nomes que proporciona Virtualbox xa preconfigurado na interface NAT: <b>10.0.2.3</b>.<p/>
+  <p><img src="Captura005_004.png" alt="Configuración do DNS" style="width:1000px;"></p>
+  <p><b>NOTA:</b> Podes repetir este paso executando de novo o comando <b>setup-dns</b> no caso de introducir mal algún dato.
 
-  <p>Escribe <b>n</b> (ou acepta sen escribir nada) para indicar que non queremos facer máis configuracións manuais da rede.<p/>
-  <p><img src="Captura008.png" alt="Configuración da rede" style="width:700px;height:110px;"></p>
+  <li>Para que os cambios feitos na configuración da rede teñan efecto, é necesario reiniciar o servizo de rede executando o comando <b>rc-service netwoking restart</b>. Despois executa o comando <b>ip a</b> para comprobar que a interface eth0 ten configurada a IP correcta.</p></li>
+   <p><img src="Captura005_005.png" alt="Configuración da rede" style="width:1000px;"></p>
 
-  <p>Escribe <b>icap</b> para o nome de dominio DNS e a IP do servidor de nomes que proporciona Virtualbox xa preconfigurado na interface NAT: <b>10.0.2.3</b>. <p/>
-  <p><img src="Captura009.png" alt="Configuración da rede" style="width:700px;height:35px;"></p>
+  <li>Temos tamén que configurar os repositorios que se usarán para descargar os paquetes software que se instalen máis adiante. Executa o comando <b>setup-apkrepos -1c</b>, o cal activa dous repositorios por defecto: main e community.</p>
+  <p><b>IMPORTANTE:</b> asegúrate de que se configuran correctamente os repositorios comprobando o contido do ficheiro /etc/apk/repositories</b> como ves na imaxe.</p>
+   <p><img src="Captura005_006.png" alt="Configuración dos repositorios" style="width:1000px;"></p>
+   
+   <li>Configuramos tamén o servizo de sincronización do tempo chamado chrony executando o comando <b>setup-ntp chrony</b>.</li>
+   <p><img src="Captura005_007.png" alt="Configuración dos repositorios" style="width:1000px;"></p>
+   
+  <li>Configura agora o contrasinal do usuario <b>root</b> (o administrador do sistema) executando o comando <b>passwd</b>.
+  <p><b>Recoméndase usar "icap" (sen as aspas)</b>. Aínda que é un contrasinal moi curto e sinxelo, como xa se nos indica ao introducilo, válenos igualmente para o propósito desta práctica. Ten en conta que tes que introducilo <b>dúas veces</b>. Se decides usar outro contrasinal, <b>é moi importante que despois te lembres del</b>. Se obtés calquera erro neste paso, volve a executar o comando <b>passwd</b> para repetir o proceso.
+  <p><b>IMPORTANTE: non uses caracteres "raros" para o contrasinal</b>, porque vamos ter que usalo nalgunha ocasión máis adiante co teclado aínda sen configurar.</p>
+  <p><img src="Captura006.png" alt="Contrasinal de root" style="width:1000px;"></p>
+    
+  <li>Configura o disco e instala o sistema executando o comando <b>setup-disk</b>. 
+  <p>Primeiro, acepta a opción por defecto para usar o único disco ríxido (<b>sda</b>) que temos na VM (podes comprobalo nas propiedades de almacenamento da VM no VirtualBox).</p></li>
+  <p><img src="Captura007.png" alt="Configuración do disco" style="width:1000px;"></p>
+  <p>No tipo de instalación escribe <b>sys</b> para realizar unha instalación estándar.</p>
+  <img src="Captura008.png" alt="Particionamento do disco" style="width:1000px"></p>
 
-  <li>Configura o contrasinal para o usuario <b>root</b> (o administrador). <b>É importante que despois te lembres del</b>. Un exemplo fácil de lembrar serían as túas iniciais separadas do curso actual por un guión (exemplo: xcpm-2122)</li>
-  <p><b>IMPORTANTE: non uses caracteres "raros" para o contrasinal</b>, porque vamos ter que usalo nalgunha ocasión co teclado sen configurar. Se usas o guión lembra que cando o teclado non estea configurado terás que premer a tecla que está situada <b>á dereita do 0</b>.</p>
-  <p><img src="Captura007c.png" alt="Contrasinal de root" style="width:700px;height:70px;"></p>
+  <p>Por último, escribe <b>y</b> para aceptar formatar o disco e instalar Alpine nel.
+  <p><b>NOTA:</b> non te preocupes se che aparecen unhas mensaxes de advertencia en vermello neste paso (por exemplo: Partition#1 contains a ext4 signature). Non son erros, xa que depende de se é a primeira vez que o estás facendo ou se estás repetindo o proceso de instalación (polo que as particións no disco xa existen e somos avisados diso). Se obtiveses erros, podes repetir este paso executando de novo o comando <b>setup-disk</b>.</li>
+  <p><img src="Captura009.png" alt="Instalación do sistema" style="width:1000px;"></p>
+ 
+  <li>Se todo foi ben, obterás una mensaxe de que rematou a instalación.
+  <p><img src="Captura010.png" alt="Rematou a instalación" style="width:1000px;"></p>
+  <p>Apaga a VM executando o comando <b>poweroff</b></p></li>
+  <p><img src="Captura011.png" alt="Apagar a VM" style="width:1000px;"></p>
 
-  <li>Configura o fuso horario. Na zona escribe <b>Europe</b> e na subzona escribe <b>Madrid</b>.</li>  <p><img src="Captura008c.png" alt="Configuración do fuso horario" style="width:700px;height:80px;"></p>
-
-  <li>Acepta (sen escribir nada) a opción por defecto para non configurar un proxy para o acceso a Internet.</li>  <p><img src="Captura009c.png" alt="Configuración do proxy" style="width:700px;height:25px;"></p>
-
-  <li>Escolle o repositorio que se usará para descargar os paquetes software que se instalen. 
-  <p>Para elo terás que comprobar na páxina: <a href="https://mirrors.alpinelinux.org/">https://mirrors.alpinelinux.org</a> se algún dos repositorios da listaxe que se che mostra está actualizado para a versión 3.16 de Alpine. Tes que procurar un repositorio dos da listaxe que estea en estado OK na columna v3.16, igual que se ve no exemplo para o repositorio <b>mirror.mangohost.net</b>.</p>
-  <p><img src="Captura011b.png" alt="Estado mirror" style="width:700px;height:472px;"></p>
-
-  <p>Escribe o número que o repositorio ten na listaxe para escollelo (no exemplo o repositorio <b>mirror.mangohost.net</b> ten o número 69 na listaxe).</li>
-  <p><img src="Captura011.png" alt="Configuración mirror" style="width:700px;height:200px;"></p>
-
-  <li>Configura a túa conta de usuario. Podes usar as tuas iniciais como nome para o login. Para a chave SSH do usuario acepta (sen escribir nada) a opción por defecto.</li>
-  <p><b>IMPORTANTE: non uses caracteres "raros" para o contrasinal</b>, porque vamos ter que usalo nalgunha ocasión co teclado sen configurar. Se usas o guión lembra que cando o teclado non estea configurado terás que premer a tecla que está situada <b>á dereita do 0</b>.</p>  <p><img src="Captura012c.png" alt="Configuración da conta de usuario" style="width:700px;height:175px;"></p>
-
-  <p><b>IMPORTANTE:</b> asegúrate de que se configura correctamente o usuario (que non aparece ningunha mensaxe de erro e que aparecen as que indican que se instalaron correctamente o <b>doas</b> e o <b>busybox</b>). Se non fora así terás que interromper a instalación pulsando Ctrl+C e volver comezar desde o paso 3.</p>
-
-  <li>Configura o servidor SSH (o que se usa para iniciar sesións seguras na VM). Acepta (sen escribir nada) para usar o servidor por defecto (OpenSSH).</li>
-  <p><img src="Captura013c.png" alt="Configuración de SSH" style="width:700px;height:75px;"></p>
-
-  <li>Configura o disco. 
-  <p>Escribe <b>sda</b> para usar o único disco ríxido que temos na VM. No tipo de instalación escribe <b>sys</b> para realizar unha instalación estándar.</p></li>  <p><img src="Captura014c.png" alt="Configuración do disco" style="width:700px;height:85px;"></p>
-  <p>O instalador procederá a realizar o particionamento do disco.<br>
-  <img src="Captura015c.png" alt="Particionamento do disco" style="width:700px;height:25px;"></p>
-
-  <li>Instalación do sistema. Escribe <b>y</b> para aceptar formatar o disco e instalar Alpine nel. Este é o paso da instalación ao que lle leva máis tempo.</li>  <p><img src="Captura016c.png" alt="Instalación do sistema" style="width:700px;height:125px;"></p>
-
-  <li>Rematou a instalación.  
-  <p><img src="Captura017.png" alt="Rematou a instalación" style="width:700px;height:35px;"></p>
-
-  <li>Apaga a VM executando o comando <b>poweroff</b>.</li> 
-  <p><img src="Captura018.png" alt="Apagar a VM" style="width:700px;height:35px;"></p>
-
-  </ol>
+ </ol>
  </body>
 </html>
