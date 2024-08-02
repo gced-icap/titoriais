@@ -17,7 +17,7 @@
   <li>Se a VM se iniciou correctamente cargarase unha versión inicial mínima de Alpine. Para iniciar sesión usa o usuario <b>root</b> sen contrasinal.</li>
   <p><img src="Captura001.png" alt="Inicio de sesión" style="width:1000px;"></p>
 
-  <li>Para instalar Alpine executa o comando <b>setup-alpine -q</b>. Como de momento o teclado non está configurado na VM, para escribir o guión terás que premer a tecla que está situada <b>á dereita do 0</b> (é a tecla usada para o guión nos teclados americanos). Se ao premer esa tecla no teu teclado non aparece o guión, terás que probar con outras.</li>
+  <li>Para configurar os aspectos básicos de Alpine executa o comando <b>setup-alpine -q</b>. Como de momento o teclado non está configurado na VM, para escribir os guións terás que premer a tecla que está situada <b>á dereita do 0</b> (é a tecla usada para o guión nos teclados americanos). Se ao premer esa tecla no teu teclado non aparece o guión, terás que probar con outras.</li>
   <p><img src="Captura002.png" alt="Comando setup-alpine -q" style="width:1000px"></p>
 
   <li>Configura o teclado. 
@@ -42,7 +42,7 @@
   <img src="Captura008.png" alt="Particionamento do disco" style="width:1000px"></p>
 
   <p>Por último, escribe <b>y</b> para aceptar formatar o disco e instalar Alpine nel.
-  <p><b>NOTA:</b> non te preocupes se che aparecen mensaxes de advertencia en vermello neste paso (non son erros), xa que depende de se é a primeira vez que o estás facendo ou se estás repetindo o proceso de instalación. Se obtiveses un erro, podes repetir este paso 8 executando de novo o comando <b>setup-disk</b>.</li>
+  <p><b>NOTA:</b> non te preocupes se che aparecen unhas mensaxes de advertencia en vermello neste paso (por exemplo: Partition#1 contains a ext4 signature). Non son erros, xa que depende de se é a primeira vez que o estás facendo ou se estás repetindo o proceso de instalación (polo que as particións no disco xa existen e somos avisados diso). Se obtiveses erros, podes repetir este paso executando de novo o comando <b>setup-disk</b>.</li>
   <p><img src="Captura009.png" alt="Instalación do sistema" style="width:1000px;"></p>
  
   <li>Se todo foi ben, obterás una mensaxe de que rematou a instalación.
