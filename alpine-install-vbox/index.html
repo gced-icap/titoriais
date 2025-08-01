@@ -9,9 +9,11 @@
   <h1>Instalación de Alpine Linux nunha VM de VirtualBox</h1>
   <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Alpine Linux 3.20 coas opcións que hai que seleccionar en cada paso. 
   <ol>
-  <li><a href="https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-virt-3.20.2-x86_64.iso">Descarga desde aquí</a> a imaxe ISO da versión <i>Virtual</i> (optimizada para VM) do Alpine Linux 3.20<p/></li>
+  <li><a href="https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-virt-3.20.2-x86_64.iso">Descarga desde aquí</a> a imaxe ISO para x86-64 da versión <i>Virtual</i> (optimizada para VM) do Alpine Linux 3.20.
+    <p><b>NOTA:</b> se estiveses a usar un Macbook con procesador Apple M1-M4, terías que descargar a imaxe ISO para <a href="https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-virt-3.20.2-aarch64.iso">ARM</a>.<p/>
+  </li>
 
-  <li>Inicia a VM que creaches no VirtualBox e, no diálogo que aparece para montar o DVD desde o que instalar o SO, selecciona a imaxe ISO descargada (<b>alpine-virt-3.20.2-x86_64.iso</b>) e reinicia a VM. Se che dera problemas accedendo á imaxe ISO, podes probar a apagar a VM, montar a imaxe ISO "manualmente" na unidade óptica da VM (propiedades de almacenamento da VM, véxase captura inferior), e iniciar de novo a VM.</li>
+  <li>Inicia a VM que creaches no VirtualBox e, no diálogo que aparece para montar o DVD desde o que instalar o SO, selecciona a imaxe ISO descargada e reinicia a VM. Se che dera problemas accedendo á imaxe ISO, podes probar a apagar a VM, montar a imaxe ISO "manualmente" na unidade óptica da VM (propiedades de almacenamento da VM, véxase captura inferior), e iniciar de novo a VM.</li>
   <p><img src="Captura000.png" alt="Montaxe manual da ISO" style="width:1300px;"></p>
 
   <li>Se a VM se iniciou correctamente cargarase unha versión inicial mínima de Alpine. Para iniciar sesión usa o usuario <b>root</b> sen contrasinal.</li>
