@@ -11,16 +11,16 @@
 
   <ol>
 
-  <li>Desde VirtualBox inicia a VM na que instalaches Alpine e inicia sesión co usuario <b>root</b> e o contrasinal que configuraches (seguramente "icap" sen as aspas).</li>
+  <li>Desde VirtualBox inicia a VM na que instalaches Alpine na primeira parte da práctica. Inicia sesión co usuario <b>root</b> e o contrasinal que configuraches (seguramente "icap" sen as aspas).</li>
   <p><img src="Captura000.png" alt="Inicio de sesión" style="width:1000px;"></p>
 
-  <li>Vamos instalar un ambiente gráfico de escritorio (GUI) na VM. Alpine, ao igual que acontece con outros Linux, soporta diferentes GUI. Nós vamos instalar Xfce que non demanda demasiados recursos, polo que é unha boa opción para VM. Executa o comando <b>setup-desktop xfce</b>.</li> 
+  <li>Vamos instalar un ambiente gráfico de escritorio (Graphical User Interface, GUI) na VM. Alpine, ao igual que acontece con outros Linux, soporta diferentes GUI. Nós vamos instalar Xfce xa que non demanda demasiados recursos, polo que é unha boa opción para unha VM. Para instalar Xfce, executa o comando <b>setup-desktop xfce</b>.</li> 
   <p><b>NOTA</b>: O proceso de instalación leva un cacho xa que ten que descargar e instalar máis de 300 paquetes. Paciencia.</p>
   <img src="Captura001.png" alt="Xfce instalado" style="width:1000px;"></p>
 
   <li>Reinicia a VM executando o comando <b>reboot</b>.</li></p> 
 
-  <li>Agora a VM xa se inicia automaticamente no modo gráfico. Inicia sesión de novo co usuario <b>root</b>. Ten en conta que debido a un problema en Xfce coa configuración do teclado, ao escribir o contrasinal no diálogo de inicio de sesión as teclas interprétanse igual que nun teclado americano (p.ex. o guión escríbese premendo a tecla que está á dereita do 0). Non tería que supoñer un problema xa que o contrasinal non debería ten caracteres "raros" se seguiches as instrucións durante a instalación de Alpine.</li> 
+  <li>Agora a VM xa se inicia automaticamente no modo gráfico. Inicia sesión de novo co usuario <b>root</b> e o contrasinal que configuraches. Ten en conta que debido a un problema en Xfce coa configuración do teclado, ao escribir o contrasinal no diálogo de inicio de sesión as teclas interprétanse igual que nun teclado americano (p.ex. o guión escríbese premendo a tecla que está á dereita do 0). Non tería que supoñer un problema xa que o contrasinal non debería ten caracteres "raros" se seguiches as instrucións durante a instalación de Alpine (seguramente o teu contrasinal sexa "icap" sen as aspas).</li> 
   <p><img src="Captura002.png" alt="Inicio sesión Xfce" style="width:1000px;"></p>
 
   <li>Unha vez iniciada a sesión accedemos ao ambiente de escritorio de Xfce.</li> 
@@ -32,22 +32,21 @@
    <p>Na lapela <b>Layout</b> desactiva a opción <b>Use system defaults</b> e engade unha nova configuración para o teclado na primeira posición da listaxe. Ten en conta que debido ao problema comentado anteriormente, esta configuración parece funcionar só dentro da sesión Xfce pero non no diálogo de inicio de sesión. Nas capturas vese un exemplo para un teclado con teclas de Windows.</p> 
   <img src="Captura005.png" alt="Configuración do teclado" style="width:1000px;"><br>
 
-  <p><b>IMPORTANTE:</b> asegúrate de eliminar a configuración por defecto en Inglés do teclado (como se ve na captura) cando peches o diálogo.</p>
+  <p><b>IMPORTANTE:</b> asegúrate de eliminar a configuración por defecto en Inglés do teclado (como se ve na captura seguinte) antes de pechar o diálogo.</p>
   <img src="Captura006.png" alt="Configuración do teclado" style="width:1000px;"></p>
 
-  <li>Crea a túa conta de usuario. Abre un terminal e executa o comando <b>setup-user -a</b>.</li>
-  <p><b>IMPORTANTE: debes usar as tuas iniciais como nome para o login seguido do curso actual</b>. Exemplo: o alumno Roberto Rey Expósito no curso 2024/2025 creará un usuario con login <b>rre2425</b> (véxase a captura). Pon tamén o teu nome e apelidos completo na segunda das preguntas que fai o comando. Para a chave SSH do usuario acepta (sen escribir nada) a opción por defecto.</p> 
-  <p><b>NOTA:</b> aínda que teñamos o teclado configurado en español na sesión Xfce, non uses caracteres "raros" para o contrasinal do teu usuario porque no diálogo de inicio de sesión o teclado seguirá configurado en inglés como xa se comentou. De novo, <b>recoméndase usar un contrasinal sinxelo como "icap" (sen as aspas)</b>.</p>
+  <li>Crea a túa conta de usuario. Abre un terminal e executa o comando <b>setup-user -a</b>. Como xa configuramos o teclado en español, o carácter guión xa debería estar na súa tecla correspondente.</li>
+  <p><b>IMPORTANTE: debes usar as tuas iniciais como nome para o login seguido do curso actual</b>. Exemplo: o alumno Roberto Rey Expósito no curso 2025/2026 creará un usuario con login <b>rre2526</b> (véxase a captura). Pon tamén o teu nome e apelidos completo na segunda das preguntas que fai o comando. Aínda que teñamos o teclado configurado en español na sesión Xfce, para o contrasinal, non uses caracteres "raros" para o contrasinal do teu usuario porque no diálogo de inicio de sesión o teclado seguirá configurado en inglés como xa se comentou. De novo, <b>recoméndase usar un contrasinal sinxelo como "icap" (sen as aspas)</b>. Para a chave SSH do usuario (última pregunta) acepta sen escribir nada a opción por defecto.</p> 
   <img src="Captura007.png" alt="Configuración do usuario" style="width:1000px;"></p>
 
-  <li>Reinicia a VM executando o comando <b>reboot</b> e agora inicia sesión co teu novo <b>usuario</b>.
+  <li>Reinicia a VM executando de novo o comando <b>reboot</b> e agora inicia sesión co teu novo <b>usuario</b>.
   <p><img src="Captura008.png" alt="Inicio de sesión co usuario" style="width:1000px;"></p>
   <p><img src="Captura009.png" alt="Inicio de sesión co usuario" style="width:1000px;"></p>
-  <p><b>IMPORTANTE: </b> deberás configurar o teclado para o teu usuario da mesma forma que fixemos antes.</p></li>
+  <p><b>IMPORTANTE: </b> antes de continuar tes que configurar de novo o teclado <b>para o teu usuario</b> da mesma forma que fixemos antes.</p></li>
   
   <li>Xfce non instala por defecto un editor de texto, polo que vamos a instalar un. Abre un terminal e executa o comando <b>apk add mousepad</b>.</li>
   <p><img src="Captura010.png" alt="Erro na instalación de mousepad" style="width:1000px;"></p>
-  <p>O comando amosa un erro indicando que non temos os permisos suficientes (Permission denied) para instalar <i>software</i>. O noso usuario pode executar comandos con permisos de administrador (como root) poñendo o comando <b>doas</b> diante. Esta funcionalidade foi configurada automaticamente durante a creación da conta de usuario (concretamente, a opción -a do comando setup-user habilitou esta configuración).</p> 
+  <p>O comando amosa un erro indicando que non temos os permisos suficientes (Permission denied) para instalar <i>software</i>. O noso usuario pode executar comandos con permisos de administrador (é dicir, como usuario root) poñendo o comando <b>doas</b> diante. Esta funcionalidade foi configurada automaticamente durante a creación da conta de usuario (concretamente, a opción -a do comando setup-user habilitou esta configuración).</p> 
   
   <li>Repite o comando anterior poñendo <b>doas</b> diante para executalo con permisos de administrador (como usuario root). Terás que introducir o contrasinal do teu usuario.</li>
   <p><img src="Captura011.png" alt="Instalación de mousepad" style="width:1000px;"></p>
@@ -55,7 +54,7 @@
   <p>Unha vez instalado podes abrilo desde Applications->Accesories->Mousepad</p>
   <img src="Captura012.png" alt="Abrir Mousepad" style="width:1000px;"></p>
   <img src="Captura013.png" alt="Mousepad aberto" style="width:1000px;"></p>
-  <li>Podes curiosear o que queiras no ambiente de escritorio. Unha vez remates de curiosear <b>tes que sacar a captura para a memoria de xustificación da actividade tal e como se indica no PDF da práctica</b>.</li></p>
+  <li>Agora podes curiosear o que queiras no ambiente de escritorio. Unha vez remates de curiosear <b>tes que sacar a captura para a memoria de xustificación da actividade tal e como se indica no PDF da práctica 0</b>.</li></p>
   </ol>
  </body>
 </html>
