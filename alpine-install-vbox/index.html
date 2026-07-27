@@ -9,10 +9,8 @@
   <h1>Instalación de Alpine Linux nunha VM de VirtualBox</h1>
   <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Alpine Linux 3.20 coas opcións que hai que seleccionar en cada paso. 
   <ol>
-  <li><a href="https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-virt-3.20.2-x86_64.iso">Descarga desde aquí</a> a imaxe ISO para x86-64 da versión <i>Virtual</i> (optimizada para VM) do Alpine Linux 3.20.
-    <!--
-    <p><b>NOTA:</b> se estiveses a usar un Macbook con procesador Apple M1-M4, terías que descargar a imaxe ISO para <a href="https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-virt-3.20.2-aarch64.iso">ARM</a>.<p/>
-    -->
+  <li>Descarga desde <a href="https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-virt-3.23.4-x86_64.iso">aquí</a> a imaxe ISO para x86-64 da versión <i>Virtual</i> (optimizada para VM) do Alpine Linux 3.23.
+    <p><b>NOTA:</b> se estiveses a usar un portátil con procesador ARM (p.ex. Apple M1-M5), terías que descargar a <a href="https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-virt-3.23.4-aarch64.iso">imaxe ISO para ARM64</a>.<p/>
   </li>
 
   <li>Inicia a VM que creaches no VirtualBox e, no diálogo que aparece para montar o DVD desde o que instalar o SO, selecciona a imaxe ISO descargada e reinicia a VM. Se che dera problemas accedendo á imaxe ISO, podes probar a apagar a VM, montar a imaxe ISO "manualmente" na unidade óptica da VM (propiedades de almacenamento da VM, véxase captura inferior), e iniciar de novo a VM.</li>
@@ -39,8 +37,8 @@
   <p><img src="Captura006.png" alt="Configuración de rede" style="width:1000px;"></p>
   
   <li>Configura agora o contrasinal do usuario <b>root</b> (o administrador do sistema) executando o comando <b>passwd</b>.
-  <p><b>Recoméndase usar "icap" (sen as aspas)</b>. Aínda que é un contrasinal moi curto e sinxelo, como xa se nos indica ao introducilo, válenos igualmente para o propósito desta práctica. Ten en conta que tes que introducilo <b>dúas veces</b>. Se decides usar outro contrasinal, <b>é moi importante que despois te lembres del</b>. Se obtés calquera erro neste paso 7, volve a executar o comando <b>passwd</b> para repetir o proceso.
-  <p><b>IMPORTANTE: non uses caracteres "raros" para o contrasinal</b>, porque vamos ter que usalo nalgunha ocasión máis adiante co teclado aínda sen configurar. Se usas o guión lembra que cando o teclado non estea configurado terás que premer a tecla que está situada <b>á dereita do 0</b>.</p>
+  <p><b>Recoméndase usar "icap" (sen as aspas)</b>. Aínda que é un contrasinal moi curto e sinxelo, como xa se nos indica ao introducilo, válenos igualmente para o propósito desta práctica. Ten en conta que tes que introducilo <b>dúas veces</b>. Se decides usar outro contrasinal, <b>é moi importante que despois te lembres del</b>. Se obtés calquera erro neste paso, volve a executar o comando <b>passwd</b> para repetir o proceso.
+  <p><b>IMPORTANTE: non uses caracteres "raros" para o contrasinal</b>, porque vamos ter que usalo nalgunha ocasión máis adiante co teclado aínda sen configurar.</p>
   <p><img src="Captura007.png" alt="Contrasinal de root" style="width:1000px;"></p>
 
   <li>Configura o disco e instala o sistema executando o comando <b>setup-disk</b>. 
@@ -53,12 +51,12 @@
   <p><b>NOTA:</b> non te preocupes se che aparecen unhas mensaxes de advertencia en vermello neste paso (por exemplo: Partition#1 contains a ext4 signature). Non son erros, xa que depende de se é a primeira vez que estás facendo a instalación ou se estás repetindo o proceso (polo que as particións no disco xa existen e somos avisados diso). Se obtiveses outros erros, podes repetir este paso executando de novo o comando <b>setup-disk</b>.</li>
   <p><img src="Captura010.png" alt="Instalación do sistema" style="width:1000px;"></p>
  
-  <li>Se todo foi ben, obterás unha mensaxe de que rematou a instalación.
+  <li>Se todo foi ben, obterás unha mensaxe de que rematou a instalación do Alpine.
   <p><img src="Captura011.png" alt="Rematou a instalación" style="width:1000px;"></p>
   <p>Apaga a VM executando o comando <b>poweroff</b></p></li>
   <p><img src="Captura012.png" alt="Apagar a VM" style="width:1000px;"></p>
 
-  <li>Antes de continuar, desde a configuración de almacenamento da VM en VirtualBox, extrae a imaxe ISO de Alpine.</li> 
+  <li>Posto que agora temos o Alpine instalado no disco da VM, xa non necesitamos a imaxe ISO. Se a deixas montada na unidade óptica, a VM volverá a iniciar desde a ISO e non desde o sistema instalado no disco. Antes de continuar, tes que extraer a imaxe ISO da VM desde a configuración de almacenamento da VM en VirtualBox (véxase captura inferior).</li> 
   <p><img src="Captura013.png" alt="Extraer a ISO" style="width:1000px"></p>
 
   </ol>
