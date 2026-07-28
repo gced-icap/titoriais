@@ -7,16 +7,15 @@
  <body>
 
   <h1>Instalación de Alpine Linux nunha VM de VirtualBox</h1>
-  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Alpine Linux 3.20 coas opcións que hai que seleccionar en cada paso. 
+  <p style="font-size:125%;">A seguinte secuencia de capturas mostra a instalación de Alpine Linux coas opcións que hai que seleccionar en cada paso. 
   <ol>
-  <li>Descarga desde <a href="https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-virt-3.23.4-x86_64.iso">aquí</a> a imaxe ISO para x86-64 da versión <i>Virtual</i> (optimizada para VM) do Alpine Linux 3.23.
-    <p><b>NOTA:</b> se estiveses a usar un portátil con procesador ARM (p.ex. Apple M1-M5), terías que descargar a <a href="https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-virt-3.23.4-aarch64.iso">imaxe ISO para ARM64</a>.<p/>
+  <li>Se tes un procesador x86-64, descarga desde <a href="https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-virt-3.23.4-x86_64.iso">aquí</a> a imaxe ISO x86-64 da versión <i>Virtual</i> (optimizada para VM) do Alpine Linux 3.23. Se tes un procesador ARM (p.ex. Apple M1-M5), tes que descargar desde <a href="https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-virt-3.23.4-aarch64.iso">aquí</a> a imaxe ISO ARM (aarch64).<p/>
   </li>
 
-  <li>Inicia a VM que creaches no VirtualBox e, no diálogo que aparece para montar o DVD desde o que instalar o SO, selecciona a imaxe ISO descargada e reinicia a VM. Se che dera problemas accedendo á imaxe ISO, podes probar a apagar a VM, montar a imaxe ISO "manualmente" na unidade óptica da VM (propiedades de almacenamento da VM, véxase captura inferior), e iniciar de novo a VM.</li>
+  <li>Nas propiedades da VM que creaches no VirtualBox, monta a imaxe ISO na súa unidade óptica virtual (propiedades de almacenamento da VM, véxase captura inferior) e inicia a VM.</li>
   <p><img src="Captura000.png" alt="Montaxe manual da ISO" style="width:1300px;"></p>
 
-  <li>Se a VM se iniciou correctamente cargarase unha versión inicial mínima de Alpine. Para iniciar sesión usa o usuario <b>root</b> sen contrasinal.</li>
+  <li>Se a VM se iniciou correctamente cargarase desde a imaxe ISO unha versión inicial mínima de Alpine. Para iniciar sesión usa o usuario <b>root</b> sen contrasinal.</li>
   <p><img src="Captura001.png" alt="Inicio de sesión" style="width:1000px;"></p>
 
   <li>Para configurar os aspectos básicos de Alpine executa o comando <b>setup-alpine -q</b>. Como de momento o teclado non está configurado na VM, para escribir os guións terás que premer a tecla que está situada <b>á dereita do 0</b> (é a tecla usada para o guión nos teclados americanos). Se ao premer esa tecla no teu teclado non aparece o guión, terás que probar con outras.</li>
@@ -53,12 +52,12 @@
  
   <li>Se todo foi ben, obterás unha mensaxe de que rematou a instalación do Alpine.
   <p><img src="Captura011.png" alt="Rematou a instalación" style="width:1000px;"></p>
-  <p>Se tes un procesador ARM, a saída final é lixeiramente diferente como se mostra a continuación, pero o importante é comprobar que a instalación remata sen erros.</p>
+  <p>Se tes un procesador ARM, a saída é lixeiramente diferente como se mostra na captura seguinte, pero o importante é comprobar que a instalación remata sen erros.</p>
   <p><img src="Captura011-ARM.png" alt="Rematou a instalación" style="width:450px;"></p>
   <p>Unha vez rematada a instalación de Alpine, apaga a VM executando o comando <b>poweroff</b></p></li>
   <p><img src="Captura012.png" alt="Apagar a VM" style="width:1000px;"></p>
 
-  <li>Posto que agora temos o Alpine instalado no disco da VM, xa non necesitamos a imaxe ISO. Se a deixas montada na unidade óptica, a VM volverá a iniciar desde a ISO e non desde o sistema instalado no disco. Antes de continuar, tes que extraer a imaxe ISO da VM desde a configuración de almacenamento da VM en VirtualBox (véxase captura inferior).</li> 
+  <li>Posto que agora temos o Alpine instalado no disco da VM, xa non necesitamos a imaxe ISO. Se a deixas montada na unidade óptica, a VM volverá a iniciar desde a ISO e non desde o sistema instalado no disco. Polo tanto, tes que extraer a ISO desde a configuración de almacenamento da VM no VirtualBox (véxase captura inferior).</li> 
   <p><img src="Captura013.png" alt="Extraer a ISO" style="width:1000px"></p>
 
   </ol>
