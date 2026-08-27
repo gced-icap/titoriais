@@ -31,8 +31,8 @@
   <li>A configuración remata con opcións seleccionadas por defecto. Por exemplo, Alpine configura a única interface de rede que ten a VM para que obteña automaticamente unha IP cando se inicie. Esta interface correspóndese co único adaptador virtual de rede que temos na VM (podes comprobalo nas propiedades de rede da VM no VirtualBox). Para obter automaticamente a IP úsase un servizo denominado DHCP que xa ven preconfigurado co VirtualBox. Na captura pode verse como se lle asigna a IP 10.0.2.15 á VM usando DHCP. No teu caso, a IP asignada á túa VM podería ser diferente.</li>
   <p><img src="Captura005.png" alt="Nome do host" style="width:1000px;"></p>
 
-  <li>Vamos a comprobar a configuración de rede da VM. Comproba que a interface de rede <b>eth0</b> ten unha dirección IP asignada executando o comando <b>ip address</b>. Logo executa o comando <b>ping</b> da figura para comprobar que a VM ten conectividade a Internet.
-  <p><b>NOTA</b>: Se a VM non ten conectividade (o ping non obtén resposta), proba a executar de novo o comando <b>setup-alpine -q</b> para volver a configurar a rede.
+  <li>Vamos a comprobar a configuración de rede da VM. Comproba que a interface de rede <b>eth0</b> ten un enderezo IP asignado executando o comando <b>ip address</b>. Logo executa o comando <b>ping</b> da figura para comprobar que a VM ten conectividade a Internet.
+  <p><b>NOTA</b>: Se a VM non ten conectividade (o ping non obtén resposta), proba a executar de novo o comando <b>setup-alpine -q</b> para volver configurar a rede.
   <p><img src="Captura006.png" alt="Configuración de rede" style="width:1000px;"></p>
   
   <li>Configura agora o contrasinal do usuario <b>root</b> (o administrador do sistema) executando o comando <b>passwd</b>.
